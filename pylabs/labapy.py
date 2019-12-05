@@ -1,24 +1,40 @@
 #-*- coding: utf-8 -*-
 import math
-a = float(input('Введите а: '))
-x = float(input('Введите х: '))
+while True:
+    try:
+        a = float(input('Введите а: '))
+        x = float(input('Введите х: '))
+        count = int(input('Сколько считать? '))
+        m = float(input('Какой  шаг? '))
+        var = int(input('введи значение: '))
+        break
+    except:
+        print('Попробй снова: ')
 b = 0
 i = 0
-listG = []
 listF = []
 listY = []
 listX = []
 listA = []
-count = int(input('Сколько считать? '))
-m = float(input('Какой  шаг? '))
-var = int(input('введи значение: '))
-
+data = []
+data2 = []
+data3 = []
 while count >= 0:
     if count == 0:
-        con = str(input('продолжить счет:'))
+        while True:
+            try:
+                con = str(input('продолжить счет:'))
+                break
+            except:
+                print('Попробуй снова: ')
         if con == 'да':
-            count = int(input('Сколько считать? '))
-            m = float(input('Какой  шаг? '))
+            while True:
+                try:
+                    count = int(input('Сколько считать? '))
+                    m = float(input('Какой  шаг? '))
+                    break
+                except:
+                    print(',Попробуйте снова: ')
         else:
             print('Все!')
     if var == 1:
@@ -27,11 +43,14 @@ while count >= 0:
                 print('Введены неверные данные')
             else:
                 G = (56*(a**2)-488*a*x+320*(x**2))/(18*(a**2)-11*a*x+x**2)
-                listG.append(G)
-                listX.append(x)
-                listA.append(a)
+                data.append((x, a, G))
+#		listG.append(G)
+#                listX.append(x)
+#                listA.append(a)
+#                kortezh1.append(a)
                 x+=m
                 a+=m
+        
     elif var == 2:
         for i in range(count):
             z = math.sin(27*(a**2)+12*a*x-20*(x**2)-(math.pi/2))
@@ -40,16 +59,18 @@ while count >= 0:
                 print('Введены неверные данные')
             else:
                 F = -1/(math.sin(27*(a**2)+12*a*x-20*(x**2)-(math.pi/2)))
-                listF.append(F)
-                listX.append(x)
-                listA.append(a)
+                data2.append((x, a, F))
+#                listF.append(F)
+#                listX.append(x)
+#                listA.append(a)
                 a+=m
                 x+=m
     elif var == 3:
         for i in range(count):
             if a==0.1 and x == 0.1:
                 Y = math.asin(45*(a**2)+46*a*x+8*(x**2))
-                listY.append(Y)
+#                listY.append(Y)
+                data3.append((a, x, Y))
             else:
                 print('Введены  неверные данные')
     else:
@@ -80,17 +101,24 @@ while count >= 0:
         else:
             mda = 0
             if var == 1:
-                for i in listG:
-                    print('a = ' + str(listA[mda]) + ' x = ' + str(listX[mda]) + ' G = ' + str(listG[mda]))
-                    i += 1
-                    mda += 1
+                for i in data:
+                    print(i)
+                   # print('a = ' + str(listA[mda]) + ' x = ' + str(listX[mda]) + ' G = ' + str(listG[mda]))
+                   # print('a = {} x = {} G = {}'.format(listA[mda], listX[mda], listG[mda]))
+                   # i += 1
+                   # mda += 1
             if var == 2:
-                for i in listF:
-                    print('a = ' + str(listA[mda]) + ' x = ' + str(listX[mda]) + ' F = ' + str(listF[mda]))
-                    i += 1
-                    mda += 1
+                for i in data2:
+                    print(i)
+                   # print('a = ' + str(listA[mda]) + ' x = ' + str(listX[mda]) + ' F = ' + str(listF[mda]))
+                   # print('a = {} x = {} F = {}'.format(listA[mda], listX[mda], listF[mda]))
+                   # i += 1
+                   # mda += 1
             if var == 3:
                 for i in listY:
-                    print('a = ' + str(listA[mda]) + ' x = ' + str(listX[mda]) + ' Y = ' + str(listY[mda]))
-                    i += 1
-                    mda += 1
+                    print(i)
+                   # print('a = ' + str(listA[mda]) + ' x = ' + str(listX[mda]) + ' Y = ' + str(listY[mda]))
+                   # print('a = {} x = {} Y = {}'.format(listA[mda], listX[mda], listY[mda]))
+                   # i += 1
+                   # mda += 1
+
