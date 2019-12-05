@@ -19,7 +19,7 @@ switch(bukva)
         printf("g=%f\n\n",g);
         break;
     case 2:
-        f=-1/(sin(27*a*a+12*a*x-20*x*x-pi/2));
+        f=-1/(sin(27*a*a+12*a*x-20*x*x-M_PI/2));
         printf("f=%f\n\n",f);
         break;
     case 3:
