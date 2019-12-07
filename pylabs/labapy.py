@@ -44,13 +44,13 @@ while count >= 0:
             else:
                 G = (56*(a**2)-488*a*x+320*(x**2))/(18*(a**2)-11*a*x+x**2)
                 data.append((x, a, G))
-#		listG.append(G)
+		        listG.append(G)
 #                listX.append(x)
 #                listA.append(a)
 #                kortezh1.append(a)
                 x+=m
                 a+=m
-        
+
     elif var == 2:
         for i in range(count):
             z = math.sin(27*(a**2)+12*a*x-20*(x**2)-(math.pi/2))
@@ -60,7 +60,7 @@ while count >= 0:
             else:
                 F = -1/(math.sin(27*(a**2)+12*a*x-20*(x**2)-(math.pi/2)))
                 data2.append((x, a, F))
-#                listF.append(F)
+                listF.append(F)
 #                listX.append(x)
 #                listA.append(a)
                 a+=m
@@ -69,7 +69,7 @@ while count >= 0:
         for i in range(count):
             if a==0.1 and x == 0.1:
                 Y = math.asin(45*(a**2)+46*a*x+8*(x**2))
-#                listY.append(Y)
+                listY.append(Y)
                 data3.append((a, x, Y))
             else:
                 print('Введены  неверные данные')
@@ -115,10 +115,42 @@ while count >= 0:
                    # i += 1
                    # mda += 1
             if var == 3:
-                for i in listY:
+                for i in data3:
                     print(i)
                    # print('a = ' + str(listA[mda]) + ' x = ' + str(listX[mda]) + ' Y = ' + str(listY[mda]))
                    # print('a = {} x = {} Y = {}'.format(listA[mda], listX[mda], listY[mda]))
                    # i += 1
                    # mda += 1
+MyFileData=open('test.txt','w')
+for i in data:
+    MyFileData.write(str(i) + '\n')
+MyFileData.close()
 
+MyFileData2=open('test2.txt','w')
+for i in data2:
+    MyFileData.write(str(i) + '\n')
+MyFileData.close()
+
+MyFileData3=open('test3.txt','w')
+for i in data3:
+    MyFileData.write(str(i) + '\n')
+MyFileData.close()
+
+
+file = open('test.txt','r')
+numbers = [line for line in file.readlines()]
+file.close()
+for i in numbers:
+    print(i)
+
+file2 = open('test2.txt','r')
+numbers2 = [line for line in file.readlines()]
+file.close()
+for i in numbers2:
+    print(i)
+
+file3 = open('test3.txt','r')
+numbers3 = [line for line in file.readlines()]
+file.close()
+for i in numbers3:
+    print(i)
