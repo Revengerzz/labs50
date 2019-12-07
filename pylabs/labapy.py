@@ -12,6 +12,7 @@ while True:
         print('Попробй снова: ')
 b = 0
 i = 0
+listG = []
 listF = []
 listY = []
 listX = []
@@ -43,14 +44,11 @@ while count >= 0:
                 print('Введены неверные данные')
             else:
                 G = (56*(a**2)-488*a*x+320*(x**2))/(18*(a**2)-11*a*x+x**2)
+                listG.append(G)
                 data.append((x, a, G))
-		        listG.append(G)
-#                listX.append(x)
-#                listA.append(a)
-#                kortezh1.append(a)
+
                 x+=m
                 a+=m
-
     elif var == 2:
         for i in range(count):
             z = math.sin(27*(a**2)+12*a*x-20*(x**2)-(math.pi/2))
@@ -121,36 +119,62 @@ while count >= 0:
                    # print('a = {} x = {} Y = {}'.format(listA[mda], listX[mda], listY[mda]))
                    # i += 1
                    # mda += 1
-MyFileData=open('test.txt','w')
-for i in data:
-    MyFileData.write(str(i) + '\n')
-MyFileData.close()
+while True:
+    try:
+        poisk = str(input('Хочешь поискать строку?(да/нет): '))
+        break
+    except:
+        print('Попробуйте снова')
+if poisk == 'да':
+    if var == 1:
+        spisok = (''.join([str(i) for i in listG]))
+        print(spisok)
+        stroka = str(input('Что будешь искать?: '))
+        kol = spisok.count(stroka)
+        print('Найдено совпадений: ',kol)
+    elif var == 2:
+        spisok = (''.join([str(i) for i in listF]))
+        print(spisok)
+        stroka = str(input('Что будешь искать?: '))
+        kol = spisok.count(stroka)
+        print('Найдено совпадений: ',kol)
+    else:
+        spisok = (''.join([str(i) for i in listY]))
+        print(spisok)
+        stroka = str(input('Что будешь искать?: '))
+        kol = spisok.count(stroka)
+        print('Найдено совпадений: ',kol)
+else:
+    MyFileData=open('test.txt','w')
+    for i in data:
+        MyFileData.write(str(i) + '\n')
+    MyFileData.close()
 
-MyFileData2=open('test2.txt','w')
-for i in data2:
-    MyFileData.write(str(i) + '\n')
-MyFileData.close()
+    MyFileData2=open('test2.txt','w')
+    for i in data2:
+        MyFileData2.write(str(i) + '\n')
+    MyFileData2.close()
 
-MyFileData3=open('test3.txt','w')
-for i in data3:
-    MyFileData.write(str(i) + '\n')
-MyFileData.close()
+    MyFileData3=open('test3.txt','w')
+    for i in data3:
+        MyFileData3.write(str(i) + '\n')
+    MyFileData3.close()
 
 
-file = open('test.txt','r')
-numbers = [line for line in file.readlines()]
-file.close()
-for i in numbers:
-    print(i)
+    file = open('test.txt','r')
+    numbers = [line for line in file.readlines()]
+    file.close()
+    for i in numbers:
+        print(i)
 
-file2 = open('test2.txt','r')
-numbers2 = [line for line in file.readlines()]
-file.close()
-for i in numbers2:
-    print(i)
+    file2 = open('test2.txt','r')
+    numbers2 = [line for line in file2.readlines()]
+    file2.close()
+    for i in numbers2:
+        print(i)
 
-file3 = open('test3.txt','r')
-numbers3 = [line for line in file.readlines()]
-file.close()
-for i in numbers3:
-    print(i)
+    file3 = open('test3.txt','r')
+    numbers3 = [line for line in file3.readlines()]
+    file3.close()
+    for i in numbers3:
+        print(i)
